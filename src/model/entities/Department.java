@@ -1,3 +1,5 @@
+// 1º passo
+
 package model.entities;
 
 import java.io.Serializable;
