@@ -15,28 +15,35 @@ public class Program {
         SellerDao sellerDao = DaoFactory.createSellerDao();
 
         System.out.println(".:: Teste 1: seller findById ::.");
-
-        Seller seller  = sellerDao.findById(3);
-
+        Seller seller  = sellerDao.findById(11);
         System.out.println(seller);
+        System.out.println();
 
-        System.out.println(".:: Teste 2: seller findByDepartment ::.");
-        Department department = new Department(2,null);
-        List<Seller> list = sellerDao.findByDepartment(department);
-        for(Seller obj : list){
-            System.out.println(obj);
-        }
+//        System.out.println(".:: Teste 2: seller findByDepartment ::.");
+//        Department department = new Department(2,null);
+//        List<Seller> list = sellerDao.findByDepartment(department);
+//        for(Seller obj : list){
+//            System.out.println(obj);
+//        }
+//        System.out.println();
 
-        System.out.println(".:: Teste 3: seller findByAll ::.");
-        list = sellerDao.findAll();
-        for(Seller obj : list){
-            System.out.println(obj);
-        }
+//        System.out.println(".:: Teste 3: seller findByAll ::.");
+//        list = sellerDao.findAll();
+//        for(Seller obj : list){
+//            System.out.println(obj);
+//        }
+//        System.out.println();
 
-        System.out.println(".:: Teste 4: seller insert ::.");
-        Seller newSeller = new Seller(null, "Alexandre", "alexandre@gmail.com", new Date(), 10000.00,department);
-        sellerDao.insert(newSeller);
-        System.out.println("Inserted! New id: " + newSeller.getId());
+//        System.out.println(".:: Teste 4: seller insert ::.");
+//        Seller newSeller = new Seller(null, "Alexandre", "alexandre@gmail.com", new Date(), 10000.00,department);
+//        sellerDao.insert(newSeller);
+//        System.out.println("Inserted! New id: " + newSeller.getId());
+//        System.out.println();
 
+        System.out.println(".:: Teste 5: seller update ::.");
+        seller = sellerDao.findById(11);
+        seller.setName("Alexandre Mattos");
+        sellerDao.update(seller);
+        System.out.println("Update completed");
     }
 }
