@@ -39,9 +39,16 @@ public class Program2 {
 
         System.out.println(".:: Teste 4: Department update ::.");
         department = departmentDao.findById(7);
-        department.setName("Food");
+        department.setName("Fast Food");
         departmentDao.update(department);
         System.out.println("Update completed");
+
+        System.out.println(".:: Teste 5: Department delete ::.");
+        System.out.print("Enter id for delete teste: ");
+        int id = sc.nextInt();
+        departmentDao.deleteById(id);
+        System.out.print("Deleted completed");
+        sc.close();
 
     }
 }
