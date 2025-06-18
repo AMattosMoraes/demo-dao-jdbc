@@ -101,8 +101,8 @@ public class DepartmentDaoJDBC implements DepartmentDao {
             rs = st.executeQuery();
             
             if (rs.next()){
-                Department dep = instantieteDepartament(rs);
-                return dep;
+                Department obj = instantieteDepartament(rs);
+                return obj;
             }
             return  null;
 
@@ -131,18 +131,16 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
             rs = st.executeQuery();
             List<Department> list = new ArrayList<>();
-            Map<Integer, Department> map = new HashMap<>();
+//            Map<Integer, Department> map = new HashMap<>();
 
             while(rs.next()){
-                Department dep = map.get(rs.getInt("Id"));
-
-                if(dep == null){
-                    dep = instantieteDepartament(rs);
-                    map.put(rs.getInt("Id"),dep);
-                }
-                list.add(dep);
+                Department obj = new Department();
+                obj.setId(rs.getInt("Id"));
+                obj.setName(rs.getString("Name"));
+                list.add(obj);
             }
             return list;
+
         } catch (SQLException e){
             throw new DbException(e.getMessage());
         } finally {
